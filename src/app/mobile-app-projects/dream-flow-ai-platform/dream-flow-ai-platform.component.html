@@ -66,6 +66,32 @@
     </div>
   </div>
 
+  <!-- Carousel Section -->
+  <div class="ml-5 mr-5 sm:ml-10 sm:mr-10 p-5">
+    <ngb-carousel
+      #carousel
+      [interval]="2000"
+      [pauseOnHover]="pauseOnHover"
+      [pauseOnFocus]="pauseOnFocus"
+      (slide)="onSlide($event)"
+      class="mb-6"
+    >
+      @for (img of images; track img; let i = $index) {
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper flex justify-center items-center">
+          <img
+            [src]="img"
+            [alt]="altTexts[i]"
+            class="rounded-lg shadow-lg"
+          />
+        </div>
+      </ng-template>
+      }
+    </ngb-carousel>
+
+    <hr class="border-[#45A29E] opacity-40 mb-6" />
+  </div>
+
   <!-- Spacing at bottom -->
   <div class="h-32"></div>
 </div>
